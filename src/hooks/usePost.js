@@ -10,6 +10,18 @@ const usePost = () => {
             Author
             slug
             title
+            image {
+              childImageSharp {
+                fluid(
+                  maxWidth: 100
+                  maxHeight: 100
+                  duotone: { shadow: "#663399", highlight: "#ddbbff" }
+
+                ) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
           }
         }
       }
@@ -21,6 +33,7 @@ const usePost = () => {
     slug: post.frontmatter.slug,
     Author: post.frontmatter.Author,
     excerpt: post.excerpt,
+    image: post.frontmatter.image,
   }));
 };
 
